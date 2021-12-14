@@ -13,13 +13,8 @@ class Solution:
         if t1 == None and t2 == None:
             return True
         if t1 and t2:
-            if t1.val == t2.val:
-                if not self.helper(t1.left, t2.right):
-                    return False
-                if not self.helper(t1.right, t2.left):
-                    return False
-            else:
-                return False
+            return t1.val == t2.val and self.helper(t1.left, t2.right)\
+                and self.helper(t1.right, t2.left)
         if (t1 and not t2) or (t2 and not t1):
             return False
     
